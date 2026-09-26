@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+header h1 { margin: 0; font-size: 2.2em; }
+header p { margin: 5px 0; }
+
+section {
+    background: #fff;
+    margin: 20px 0;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 5px; }
+
+.project-card, .edu-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-left: 4px solid #3498db;
+    border-radius: 4px;
+}
+
+.project-card h3, .edu-item h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
