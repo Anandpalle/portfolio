@@ -1,13 +1,8 @@
 package com.anandreddy.portfolio.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
-@Table(name = "projects")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,4 +12,33 @@ public class Project {
     private String description;
     private String link;
     private String technologies;
+
+    // ✅ Add getters and setters
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLink() {
+        return link;
+    }
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getTechnologies() {
+        return technologies;
+    }
+    public void setTechnologies(String technologies) {
+        this.technologies = technologies;
+    }
 }
