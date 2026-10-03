@@ -2,6 +2,8 @@ package com.anandreddy.portfolio.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,12 +15,11 @@ import com.anandreddy.portfolio.model.Contact;
 import com.anandreddy.portfolio.service.ContactService;
 
 @RestController
-@RequestMapping("/api/contacts")
+@RequestMapping({"/api/contacts", "/api/contact"})
 public class ContactController {
 
     private final ContactService contactService;
 
-    // ✅ Constructor injection
     public ContactController(ContactService contactService) {
         this.contactService = contactService;
     }
@@ -29,10 +30,13 @@ public class ContactController {
     }
 
     @PostMapping
-    public Contact createContact(@RequestBody ContactRequestDTO contactRequest) {
+    public ResponseEntity<Contact> createContact(@RequestBody ContactRequestDTO contactRequest) {
         Contact contact = new Contact();
+        contact.setName(contactRequest.getName());
         contact.setEmail(contactRequest.getEmail());
+        contact.setSubject(contactRequest.getSubject());
         contact.setMessage(contactRequest.getMessage());
-        return contactService.saveContact(contact);
+        Contact saved = contactService.saveContact(contact);
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 }
