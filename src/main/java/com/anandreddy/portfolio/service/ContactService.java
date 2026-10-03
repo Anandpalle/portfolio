@@ -21,4 +21,8 @@ public class ContactService {
     public Contact saveContact(Contact contact) {
         return contactRepository.save(contact);
     }
+
+    public void deleteContact(Long id) {
+        contactRepository.deleteById(id);
+    }
 }
